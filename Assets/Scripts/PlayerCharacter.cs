@@ -39,7 +39,24 @@ public class PlayerCharacter : MonoBehaviour
         }
         else{
             Direction = context.ReadValue<Vector2>();
+            animator.SetInteger("Direction", Vector2ToDirectionInt(Direction));
             animator.SetBool("Walking", true);
+        }
+    }
+
+    int Vector2ToDirectionInt(Vector2 input)
+    {
+
+        bool DominantX = Mathf.Abs(input.x) > Mathf.Abs(input.y);
+        if(DominantX)
+        {
+            if(input.x > 0) return 1;
+            else return 3;
+        }
+        else
+        {
+            if(input.y > 0) return 0;
+            else return 2;
         }
     }
 
