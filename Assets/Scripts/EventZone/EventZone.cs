@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 
@@ -12,8 +13,8 @@ public class EventZone : MonoBehaviour
         Tag, Name
     }
 
-    [SerializeField]Event OnTargetEnter;
-    [SerializeField]Event OnTargetExit;
+    [SerializeField]public UnityEvent OnTargetEnter;
+    [SerializeField]public UnityEvent OnTargetExit;
 
     [SerializeField]TargetType targetType;
     [SerializeField] string Target;
@@ -32,35 +33,37 @@ public class EventZone : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log($"{other.tag} entered trigger");
         if(Target != "")
         switch(targetType)
         {
             case TargetType.Tag:
-            if(other.tag == Target)OnTargetEnter.Use();
+            if(other.tag == Target)OnTargetEnter.Invoke();
             else return;
             break;
             case TargetType.Name:
-            if(other.name == Target)OnTargetEnter.Use();
+            if(other.name == Target)OnTargetEnter.Invoke();
             else return; 
             break;
         }
-        else OnTargetEnter.Use();
+        else OnTargetEnter.Invoke();
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log($"{other.tag} exited trigger");
         if(Target != "")
         switch(targetType)
         {
             case TargetType.Tag:
-            if(other.tag == Target)OnTargetExit.Use();
+            if(other.tag == Target)OnTargetExit.Invoke();
             else return;
             break;
             case TargetType.Name:
-            if(other.name == Target)OnTargetExit.Use();
+            if(other.name == Target)OnTargetExit.Invoke();
             else return; 
             break;
         }
-        else OnTargetExit.Use();
+        else OnTargetExit.Invoke();
     }
 }

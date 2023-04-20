@@ -28,6 +28,12 @@ public class PlayerCharacter : MonoBehaviour
         actions.FindAction("Move").Enable();
     }
 
+    void OnDisable()
+    {
+        actions.FindAction("Move").performed -= GetDirection;
+        actions.FindAction("Move").canceled -= GetDirection;
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -37,6 +37,24 @@ namespace Game
                     ""processors"": ""StickDeadzone"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""138b9415-54ad-4094-985d-bb3fee092764"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6276c77-af39-4f10-a1fc-93b7a919b5f0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -160,6 +178,50 @@ namespace Game
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1721a7a-87cc-4a30-9014-876b71a74e1c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbab5cbd-2e04-4d26-a5f0-bcf834e8ee93"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9465d9cd-9eae-467e-b344-b2d46a9605a4"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32bdb94b-d628-4f84-bc5c-b3ce600e1448"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -169,6 +231,8 @@ namespace Game
             // Hero
             m_Hero = asset.FindActionMap("Hero", throwIfNotFound: true);
             m_Hero_Move = m_Hero.FindAction("Move", throwIfNotFound: true);
+            m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
+            m_Hero_Item = m_Hero.FindAction("Item", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -231,11 +295,15 @@ namespace Game
         private readonly InputActionMap m_Hero;
         private List<IHeroActions> m_HeroActionsCallbackInterfaces = new List<IHeroActions>();
         private readonly InputAction m_Hero_Move;
+        private readonly InputAction m_Hero_Attack;
+        private readonly InputAction m_Hero_Item;
         public struct HeroActions
         {
             private @Controls m_Wrapper;
             public HeroActions(@Controls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Hero_Move;
+            public InputAction @Attack => m_Wrapper.m_Hero_Attack;
+            public InputAction @Item => m_Wrapper.m_Hero_Item;
             public InputActionMap Get() { return m_Wrapper.m_Hero; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -248,6 +316,12 @@ namespace Game
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+                @Item.started += instance.OnItem;
+                @Item.performed += instance.OnItem;
+                @Item.canceled += instance.OnItem;
             }
 
             private void UnregisterCallbacks(IHeroActions instance)
@@ -255,6 +329,12 @@ namespace Game
                 @Move.started -= instance.OnMove;
                 @Move.performed -= instance.OnMove;
                 @Move.canceled -= instance.OnMove;
+                @Attack.started -= instance.OnAttack;
+                @Attack.performed -= instance.OnAttack;
+                @Attack.canceled -= instance.OnAttack;
+                @Item.started -= instance.OnItem;
+                @Item.performed -= instance.OnItem;
+                @Item.canceled -= instance.OnItem;
             }
 
             public void RemoveCallbacks(IHeroActions instance)
@@ -275,6 +355,8 @@ namespace Game
         public interface IHeroActions
         {
             void OnMove(InputAction.CallbackContext context);
+            void OnAttack(InputAction.CallbackContext context);
+            void OnItem(InputAction.CallbackContext context);
         }
     }
 }
