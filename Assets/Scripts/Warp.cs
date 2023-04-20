@@ -7,4 +7,5 @@ public class WarpInfo : ScriptableObject
 {
     public int SceneIndex;
     public Vector2 Position;
+
 }
