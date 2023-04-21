@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeThenDoThing : MonoBehaviour
+public class Fader : MonoBehaviour
 {
     [SerializeField]Image picture;
     [SerializeField]Color DefaultColor, FadedColor;
@@ -20,7 +20,7 @@ public class FadeThenDoThing : MonoBehaviour
 
     }
 
-    public IEnumerator FadeSceneTransition(float FadeInTime, float FadeOutime, IEnumerator AfterFade)
+    public IEnumerator FadeThenDoThing(float FadeInTime, float FadeOutime, IEnumerator Thing)
     {   GameManager.instance.GameSettings.Controls.Disable();
         //Fade out
         float FastFadeInTime = 1/FadeInTime;
@@ -29,7 +29,7 @@ public class FadeThenDoThing : MonoBehaviour
             picture.color = Color.Lerp(FadedColor, DefaultColor, t*FastFadeInTime);
             yield return null;
         }
-        yield return AfterFade;
+        yield return Thing;
         Debug.Log("Did the thing!");
         //Fade in
         float FastFadeOutTime = 1/FadeOutime;

@@ -6,10 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Mansion.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/WarpTestScene.unity
     guid: 9142b0a5161ab8b488aa947933bb5020
+  - enabled: 1
+    path: Assets/Scenes/CourtYard.unity
+    guid: efe36c1ee4b8cb74e903e7300cde7295
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6f4bdf5071871b74493045dd30a52ae0, type: 2}

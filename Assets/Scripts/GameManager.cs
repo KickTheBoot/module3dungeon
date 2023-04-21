@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameSettingsScriptableObject GameSettings;
 
-    [SerializeField] FadeThenDoThing Fader;
+    [SerializeField] Fader fader;
 
 
     public InputActionAsset GetInputActions()
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Warping");
         PlayerCharacter character = GameObject.Find("Hero").GetComponent<PlayerCharacter>();
-        Fader.StartCoroutine(Fader.FadeSceneTransition(0.5f,1,WarpAction(warp)));
+        fader.StartCoroutine(fader.FadeThenDoThing(0.5f,1,WarpAction(warp)));
     }
 
     IEnumerator WarpAction(WarpInfo warp)
