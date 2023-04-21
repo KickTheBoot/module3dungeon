@@ -59,4 +59,9 @@ public class PlayerCharacter : MonoBehaviour
             animator.SetBool("Walking", true);
         }
     }
+
+    public Vector2 GetCharacterSpeed()
+    {
+        return Direction;
+    }
 }

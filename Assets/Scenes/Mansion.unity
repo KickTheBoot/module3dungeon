@@ -7932,6 +7932,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387064315823055289, guid: c413e7dd26043e446909594ce4fb6253, type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 387064315823055289, guid: c413e7dd26043e446909594ce4fb6253, type: 3}
+      propertyPath: TargetName
+      value: Hero
+      objectReference: {fileID: 0}
     - target: {fileID: 6061702950377315017, guid: c413e7dd26043e446909594ce4fb6253, type: 3}
       propertyPath: m_RootOrder
       value: 4
