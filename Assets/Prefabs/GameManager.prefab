@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fedf015f6b843499f813cebba2dc56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeInColor: {r: 0, g: 0, b: 0, a: 1}
-  FadeOutColor: {r: 0, g: 0, b: 0, a: 0}
+  FadeInColor: {r: 0, g: 0, b: 0, a: 0}
+  FadeOutColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &6061702950377315023
 GameObject:
   m_ObjectHideFlags: 0
