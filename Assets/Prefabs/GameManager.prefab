@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameSettings: {fileID: 11400000, guid: f84045ce237dbce4c80891b268ca5656, type: 2}
-  transitron: {fileID: 0}
+  transitron: {fileID: 776781746086654782}
 --- !u!114 &776781746086654782
 MonoBehaviour:
   m_ObjectHideFlags: 0
