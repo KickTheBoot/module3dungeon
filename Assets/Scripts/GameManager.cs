@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameSettingsScriptableObject GameSettings;
 
-    [SerializeField] Fader fader;
+    [SerializeField] Transitron transitron;
 
 
     public InputActionAsset GetInputActions()
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Warping");
         PlayerCharacter character = GameObject.Find("Hero").GetComponent<PlayerCharacter>();
-        fader.StartCoroutine(fader.FadeThenDoThing(0.5f,1,WarpAction(warp)));
+        transitron.StartCoroutine(transitron.Fade(GameSettings.Controls.Disable,() => StartCoroutine(WarpAction(warp)),GameSettings.Controls.Enable));
     }
 
     IEnumerator WarpAction(WarpInfo warp)
