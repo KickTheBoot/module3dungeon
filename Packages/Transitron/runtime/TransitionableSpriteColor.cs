@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Image))]
 public class TransitionableSpriteColor : Transitionable
 {
-    SpriteRenderer Renderer;
+    Image image;
 
-    Color FadeInColor, FadeOutColor;
+    [SerializeField]Color FadeInColor, FadeOutColor;
 
     public void Awake()
     {
-        Renderer = GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
     }
 
     public override void SetValue(float value)
     {
-        Renderer.color = Color.Lerp(FadeInColor, FadeOutColor, value);
+        image.color = Color.Lerp(FadeInColor, FadeOutColor, value);
     }
 }

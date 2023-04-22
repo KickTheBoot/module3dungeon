@@ -7,14 +7,15 @@ public class Transitron : MonoBehaviour
 {
     public Transitionable target;
     [SerializeField] float FadeInTime, FadeOutTime;
-    Action AfterFadeIn;
+
 
     bool Running = false;
 
-    public IEnumerator Fade()
+    public IEnumerator Fade(Action StartAction, Action MiddleAction, Action EndAction)
     {
         if(!Running && target)
         {
+            StartAction();
             float FadeTime;
             float OneDividedByFadeTime = 1 / FadeInTime;
             Debug.Log($"{gameObject.name}: fading in");
@@ -24,7 +25,7 @@ public class Transitron : MonoBehaviour
                 yield return null;
             }
 
-            AfterFadeIn();
+            MiddleAction();
 
             OneDividedByFadeTime = 1/FadeOutTime;
             Debug.Log($"{gameObject.name}: fading out");
@@ -33,6 +34,7 @@ public class Transitron : MonoBehaviour
                 target.SetValue(1 - FadeTime * OneDividedByFadeTime);
                 yield return null;
             }
+            EndAction();
         }
         else
         {
