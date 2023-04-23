@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 6061702950286387367}
   - component: {fileID: 6061702950286387361}
   - component: {fileID: 6061702950286387360}
-  - component: {fileID: 6061702950286387362}
+  - component: {fileID: 2627821794887542233}
   m_Layer: 5
   m_Name: FadeRectangle
   m_TagString: Untagged
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6061702950286387362
+--- !u!114 &2627821794887542233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,12 +211,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6061702950286387366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7176d837de4e36e41b03bf8050890db2, type: 3}
+  m_Script: {fileID: 11500000, guid: 74fedf015f6b843499f813cebba2dc56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  picture: {fileID: 6061702950286387360}
-  DefaultColor: {r: 0, g: 0, b: 0, a: 1}
-  FadedColor: {r: 0.1, g: 0.1, b: 0.1, a: 0}
+  FadeInColor: {r: 0, g: 0, b: 0, a: 0}
+  FadeOutColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &6061702950377315023
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6061702950377315017}
   - component: {fileID: 6061702950377315016}
-  - component: {fileID: 387064315823055289}
+  - component: {fileID: 776781746086654782}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -267,8 +266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameSettings: {fileID: 11400000, guid: f84045ce237dbce4c80891b268ca5656, type: 2}
-  fader: {fileID: 6061702950286387362}
---- !u!114 &387064315823055289
+  transitron: {fileID: 776781746086654782}
+--- !u!114 &776781746086654782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,11 +276,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6061702950377315023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ce11f580bfe0d845b4b4e89c07e674e, type: 3}
+  m_Script: {fileID: 11500000, guid: 55af054a500d3ec4086cf24726b14a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  FollowOffset: {x: 2, y: 2}
+  target: {fileID: 2627821794887542233}
+  FadeInTime: 0.5
+  FadeOutTime: 1
 --- !u!1 &6061702951560031443
 GameObject:
   m_ObjectHideFlags: 0
