@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyEyes : MonoBehaviour
+public class HitBox : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,11 +18,10 @@ public class EnemyEyes : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        SendMessageUpwards("OnSeeObject",other, SendMessageOptions.DontRequireReceiver);
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        SendMessageUpwards("OnUnSeeObject", other, SendMessageOptions.DontRequireReceiver);
+        HurtBox OtherHurtBox;
+        if(other.TryGetComponent<HurtBox>(out OtherHurtBox))
+        {
+            SendMessageUpwards("OnHit",OtherHurtBox, SendMessageOptions.DontRequireReceiver);
+        }
     }
 }
