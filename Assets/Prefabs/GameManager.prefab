@@ -48,7 +48,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   TargetName: Hero
   FollowOffset: {x: 0.5, y: 0.5}
-  Treshold: {x: 4.4444447, y: 2.5}
+  Treshold: {x: 4.3831797, y: 2.4655385}
 --- !u!1 &6061702950244395602
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +610,14 @@ PrefabInstance:
     - target: {fileID: 104819699285836298, guid: 5286a13920dd9d0409602e71f68f25b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 104819699285836299, guid: 5286a13920dd9d0409602e71f68f25b5, type: 3}
+      propertyPath: m_UpscaleRT
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 104819699285836533, guid: 5286a13920dd9d0409602e71f68f25b5, type: 3}
+      propertyPath: orthographic size
+      value: 4.931077
       objectReference: {fileID: 0}
     - target: {fileID: 104819699285836534, guid: 5286a13920dd9d0409602e71f68f25b5, type: 3}
       propertyPath: m_Name
