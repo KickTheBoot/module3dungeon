@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField]Transform Target;
+    Vector2 targetLastPosition;
 
     [SerializeField] string TargetName;
 
@@ -14,11 +15,14 @@ public class CameraFollow : MonoBehaviour
     public float Speed;
 
     [SerializeField] Vector2 FollowOffset;
-    Vector2 Treshold;
+    [SerializeField]Vector2 Treshold;
+    bool TresholdCalculated;
     // Start is called before the first frame update
     void Start()
     {
+        Target = GameObject.Find(TargetName).transform;
         Treshold = CalculateTreshold();
+        if(Target)targetLastPosition = Target.position;
     }
 
     // Update is called once per frame
@@ -37,21 +41,17 @@ public class CameraFollow : MonoBehaviour
         if(Target)
         {
             Vector2 follow = Target.position;
-            float xDifference = Mathf.Abs(follow.x - transform.position.x);
-            float yDifference = Mathf.Abs(follow.y - transform.position.y);
+            float xDifference = follow.x - transform.position.x;
+            float yDifference = follow.y - transform.position.y;
 
-            Vector2 NewPosition = transform.position;
+            Debug.Log($"{xDifference},{yDifference}");
 
-            if(xDifference >= Treshold.x)
-            {
-                NewPosition.x = follow.x;
-            }
-            if(yDifference >= Treshold.y)
-            {
-                NewPosition.y = follow.y;
-            }
+            Vector2 NewPos = transform.position;
+            if(xDifference <= -Treshold.x || xDifference >= Treshold.x) NewPos.x += CalculateSpeed(follow.x, targetLastPosition.x);
+            if(yDifference < -Treshold.y || yDifference > Treshold.y)   NewPos.y += CalculateSpeed(follow.y, targetLastPosition.y);
 
-            transform.position = Vector3.MoveTowards(transform.position, follow, Speed * Time.fixedDeltaTime);
+            transform.position = NewPos;
+            targetLastPosition = follow;
         }
         else
         {
@@ -64,16 +64,23 @@ public class CameraFollow : MonoBehaviour
     {
         Rect aspect = Camera.main.pixelRect;
         Vector2 t = new Vector2(Camera.main.orthographicSize * aspect.width/aspect.height, Camera.main.orthographicSize);
-        t.x -= FollowOffset.x;
-        t.y -= FollowOffset.y;
+        t.x = t.x * FollowOffset.x;
+        t.y = t.y *FollowOffset.y;
+        TresholdCalculated = true;
         return t;
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Vector2 border = CalculateTreshold();
-        Gizmos.DrawWireCube(transform.position, border * 2);
+        
+        Treshold = CalculateTreshold();
+        Gizmos.DrawWireCube(transform.position, Treshold * 2);
 
+    }
+
+    float CalculateSpeed(float current, float last)
+    {
+        return current - last;
     }
 }
