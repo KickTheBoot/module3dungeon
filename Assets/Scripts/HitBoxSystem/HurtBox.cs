@@ -13,6 +13,8 @@ public class HurtBox : MonoBehaviour
     [Range(0,10)]
     public float Duration;
 
+    public float knockBackForce;
+
     // Start is called before the first frame update
     void Start()
     {
