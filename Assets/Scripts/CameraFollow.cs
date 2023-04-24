@@ -11,17 +11,14 @@ public class CameraFollow : MonoBehaviour
 
     float FollowSpeed;
     AnimationCurve FollowSpeedCurve;
-
-    public float Speed;
-
     [SerializeField] Vector2 FollowOffset;
     [SerializeField]Vector2 Treshold;
-    bool TresholdCalculated;
     // Start is called before the first frame update
     void Start()
     {
         Target = GameObject.Find(TargetName).transform;
         Treshold = CalculateTreshold();
+        transform.position = Target.position;
         if(Target)targetLastPosition = Target.position;
     }
 
@@ -66,7 +63,6 @@ public class CameraFollow : MonoBehaviour
         Vector2 t = new Vector2(Camera.main.orthographicSize * aspect.width/aspect.height, Camera.main.orthographicSize);
         t.x = t.x * FollowOffset.x;
         t.y = t.y *FollowOffset.y;
-        TresholdCalculated = true;
         return t;
     }
 
