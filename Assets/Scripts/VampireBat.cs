@@ -18,7 +18,7 @@ public class VampireBat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator.SetBool("Flying", false);
     }
 
     // Update is called once per frame
@@ -38,19 +38,19 @@ public class VampireBat : MonoBehaviour
 
     void OnSeeObject(Collider2D other)
     {
-        StopCoroutine(StopFollowingAfterTime(timeBeforeForgetting));
+        StopCoroutine(ForgetTarget());
         Debug.Log(other.tag == TargetableTag);
         if(other.tag == TargetableTag) destinationSetter.target = other.transform;
     }
 
     void OnUnSeeObject(Collider2D other)
     {
-        if(other.transform == destinationSetter.target) StartCoroutine(StopFollowingAfterTime(timeBeforeForgetting));
+        if(other.transform == destinationSetter.target) StartCoroutine(ForgetTarget());
     }
 
-    IEnumerator StopFollowingAfterTime(float time)
+    IEnumerator ForgetTarget()
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(timeBeforeForgetting);
         destinationSetter.target = HomePoint;
     }
 }
