@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using CharVar;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameSettingsScriptableObject GameSettings;
 
     [SerializeField] Transitron transitron;
+
+    public Health PlayerHealth;
 
 
     public InputActionAsset GetInputActions()
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
     {
         if(!instance)
         {
+            PlayerHealth.Initialize(12);
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }

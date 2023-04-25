@@ -34,4 +34,20 @@ public class HurtBox : MonoBehaviour
     {
         if(DestroyAfterHit) Destroy(this.gameObject);
     }
+
+    public static HurtBox create(Vector2 Position, Vector2 Size, int Damage, float knockBackForce, bool DestroyAfterHit, float Duration)
+    {
+        GameObject obj = new GameObject("HurtBox");
+        obj.layer = 9;
+        obj.transform.position = Position;
+        BoxCollider2D coll = obj.AddComponent<BoxCollider2D>();
+        coll.size = Size;
+        HurtBox box = obj.AddComponent<HurtBox>();
+        box.Damage = Damage;
+        box.knockBackForce = knockBackForce;
+        box.DestroyAfterHit = DestroyAfterHit;
+        box.Duration = Duration;
+    
+        return box;
+    }
 }
