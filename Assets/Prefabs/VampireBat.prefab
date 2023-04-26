@@ -76,6 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3180784361527950162}
   - component: {fileID: 3180784361527950189}
+  - component: {fileID: 6833084562472783997}
   - component: {fileID: 3180784361527950188}
   - component: {fileID: 3180784361527950191}
   - component: {fileID: 3180784361527950190}
@@ -116,13 +117,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8559f128e15b545907b11c89acca8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HomePoint: {fileID: 0}
-  ViewArea: {fileID: 0}
+  health: {fileID: 6833084562472783997}
+  homePoint: {fileID: 0}
+  viewArea: {fileID: 0}
   destinationSetter: {fileID: 3180784361527950190}
   path: {fileID: 3180784361527950191}
   timeBeforeForgetting: 4
-  TargetableTag: Player
+  targetableTag: 
   animator: {fileID: 3180784361803823414}
+--- !u!114 &6833084562472783997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180784361527950185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a8c39b6fd8e7b479017402a7f10201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3180784361527950188
 MonoBehaviour:
   m_ObjectHideFlags: 0

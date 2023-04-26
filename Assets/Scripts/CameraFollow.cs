@@ -41,8 +41,6 @@ public class CameraFollow : MonoBehaviour
             float xDifference = follow.x - transform.position.x;
             float yDifference = follow.y - transform.position.y;
 
-            Debug.Log($"{xDifference},{yDifference}");
-
             Vector2 NewPos = transform.position;
             if(xDifference <= -Treshold.x || xDifference >= Treshold.x) NewPos.x += CalculateSpeed(follow.x, targetLastPosition.x);
             if(yDifference < -Treshold.y || yDifference > Treshold.y)   NewPos.y += CalculateSpeed(follow.y, targetLastPosition.y);
