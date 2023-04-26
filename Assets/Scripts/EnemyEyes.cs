@@ -25,4 +25,9 @@ public class EnemyEyes : MonoBehaviour
     {
         SendMessageUpwards("OnUnSeeObject", other, SendMessageOptions.DontRequireReceiver);
     }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        SendMessageUpwards("OnObjectInSight", other, SendMessageOptions.DontRequireReceiver);
+    }
 }

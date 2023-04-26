@@ -7,8 +7,11 @@ namespace CharVar
 {
     public class Health :MonoBehaviour
     {
-        [HideInInspector]
-        public VisualTreeAsset Inspector;
+        public delegate void HealthChange(int amount);
+        public event HealthChange OnHealthChange;
+        public event HealthChange OnHeal;
+        public event HealthChange OnDamage;
+        
         public void Initialize(int maxHealth)
         {
             this.maxHealth = maxHealth;
@@ -27,27 +30,22 @@ namespace CharVar
                 else health = amount;
             }
             else health = maxHealth;
-            OnHealthChange.Invoke(health);
+            if(OnHealthChange != null)OnHealthChange.Invoke(health);
         }
 
         public void Damage(int amount)
         {
             Set(health - amount);
-            OnDamage.Invoke(amount);
+            if(OnDamage != null)OnDamage.Invoke(health);
         }
 
-        public event HealthChange OnDamage;
 
         public void Heal(int amount)
         {
             Set(health + amount);
-            OnHeal.Invoke(amount);
+            if(OnHeal != null)OnHeal.Invoke(health);
         }
 
-        public event HealthChange OnHeal;
-
-        public delegate void HealthChange(int amount);
-        public event HealthChange OnHealthChange;
     }
 
     

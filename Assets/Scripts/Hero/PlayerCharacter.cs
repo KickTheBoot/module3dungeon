@@ -5,18 +5,22 @@ using UnityEngine.InputSystem;
 using CharVar;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : Character
 {
+    static PlayerCharacter instance;
+
+    public GameObject Weapon;
+    
     public StateMachine stateMachine;
 
     public Animator animator;
 
     public Rigidbody2D rb;
-    public Vector2 Direction;
-    public Vector2 Facing;
+    public Vector2 direction;
+    public Vector2 facing;
 
     [SerializeField]
-    public float Speed;
+    public float speed;
 
     InputActionMap actions;
 
@@ -25,6 +29,16 @@ public class PlayerCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else 
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
         stateMachine = new StateMachine();
         stateMachine.ChangeState(new Idle(this));
         rb = GetComponent<Rigidbody2D>();
@@ -39,8 +53,11 @@ public class PlayerCharacter : MonoBehaviour
 
     void OnDisable()
     {
+        if(actions != null)
+        {
         actions.FindAction("Move").performed -= GetDirection;
         actions.FindAction("Move").canceled -= GetDirection;
+        }
     }
 
     // Update is called once per frame
@@ -58,20 +75,20 @@ public class PlayerCharacter : MonoBehaviour
     {
         if(context.canceled)
         {
-            Direction = Vector2.zero;
+            direction = Vector2.zero;
         }
         else{
 
-            Direction = Vector2.ClampMagnitude(context.ReadValue<Vector2>(),1);
-            Facing = Direction.normalized;
-            animator.SetFloat("DirX", Direction.x);
-            animator.SetFloat("DirY", Direction.y);
+            direction = Vector2.ClampMagnitude(context.ReadValue<Vector2>(),1);
+            facing = direction.normalized;
+            animator.SetFloat("DirX", direction.x);
+            animator.SetFloat("DirY", direction.y);
         }
     }
 
     public Vector2 GetCharacterSpeed()
     {
-        return Direction;
+        return direction;
     }
 
     public void OnHit(HurtBox other)
@@ -97,7 +114,7 @@ public class PlayerCharacter : MonoBehaviour
         public void Update()
         {
             if(Character.attack.WasPressedThisFrame())Character.stateMachine.ChangeState(new Attack(this.Character));
-            if(Character.Direction.magnitude > 0.1f) Character.stateMachine.ChangeState(new Walking(this.Character));
+            if(Character.direction.magnitude > 0.1f) Character.stateMachine.ChangeState(new Walking(this.Character));
         }
 
         public void FixedUpdate()
@@ -129,12 +146,12 @@ public class PlayerCharacter : MonoBehaviour
             if(Character.attack.WasPerformedThisFrame())Character.stateMachine.ChangeState(new Attack(this.Character));
             
 
-            if(Character.Direction.magnitude < 0.1f) Character.stateMachine.ChangeState(new Idle(this.Character));
+            if(Character.direction.magnitude < 0.1f) Character.stateMachine.ChangeState(new Idle(this.Character));
         }
 
         public void FixedUpdate()
         {
-            Character.rb.MovePosition(Character.rb.position + Character.Direction*Time.fixedDeltaTime*Character.Speed);
+            Character.rb.MovePosition(Character.rb.position + Character.direction*Time.fixedDeltaTime*Character.speed);
         }
 
         public void Exit()
@@ -160,14 +177,10 @@ public class PlayerCharacter : MonoBehaviour
             Debug.Log("Entering Attack State");
             elapsedTime = 0;
             Character.animator.SetTrigger("Dagger");
-            RaycastHit2D hit;
-            hit = Physics2D.Raycast(origin: Character.transform.position,direction: Character.Facing,distance: 1, layerMask:LayerMask.GetMask("Player"));
-            Debug.DrawRay(Character.transform.position, Character.Facing);
-            if(hit.collider != null)
-            {
-                Debug.DrawLine(Character.transform.position, hit.point,Color.red,1);
-                Debug.Log(hit.collider);
-            }
+            Ray ray = new Ray(Character.transform.position,Character.facing);
+            
+                GameObject.Instantiate(Character.Weapon,ray.origin + ray.direction, Quaternion.LookRotation(Vector3.back, ray.direction));
+            
         }
         
         public void Update()

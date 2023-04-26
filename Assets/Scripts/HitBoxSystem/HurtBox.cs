@@ -42,11 +42,15 @@ public class HurtBox : MonoBehaviour
         obj.transform.position = Position;
         BoxCollider2D coll = obj.AddComponent<BoxCollider2D>();
         coll.size = Size;
+        coll.isTrigger = true;
+        Rigidbody2D rb = obj.AddComponent<Rigidbody2D>();
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         HurtBox box = obj.AddComponent<HurtBox>();
         box.Damage = Damage;
         box.knockBackForce = knockBackForce;
         box.DestroyAfterHit = DestroyAfterHit;
         box.Duration = Duration;
+
     
         return box;
     }

@@ -21,7 +21,8 @@ public class HitBox : MonoBehaviour
         HurtBox OtherHurtBox;
         if(other.TryGetComponent<HurtBox>(out OtherHurtBox))
         {
-            SendMessageUpwards("OnHit",OtherHurtBox, SendMessageOptions.DontRequireReceiver);
+            Debug.Log("A hit happened");
+            if(OtherHurtBox.transform.parent != transform.parent) SendMessageUpwards("OnHit",OtherHurtBox, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
