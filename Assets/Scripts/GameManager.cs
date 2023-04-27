@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public WorldVariables worldVariables;
+
     public GameSettingsScriptableObject GameSettings;
 
     [SerializeField] Transitron transitron;
@@ -20,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(!instance)
         {
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         }
         else Destroy(this.gameObject);
 
+        worldVariables.Initialize();
     }
 
     // Update is called once per frame

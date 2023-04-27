@@ -6,4 +6,12 @@ using CharVar;
 public abstract class Character : MonoBehaviour
 {
     public Health health;
+    
+    protected void Awake()
+    {
+        health.OnDeath += DeathActions;
+    }
+
+    protected abstract void DeathActions();
+
 }

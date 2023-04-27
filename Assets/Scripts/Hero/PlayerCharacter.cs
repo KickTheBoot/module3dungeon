@@ -19,6 +19,8 @@ public class PlayerCharacter : Character
     public Vector2 direction;
     public Vector2 facing;
 
+    public int KeyCount;
+
     [SerializeField]
     public float speed;
 

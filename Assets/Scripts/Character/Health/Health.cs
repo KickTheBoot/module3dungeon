@@ -8,9 +8,11 @@ namespace CharVar
     public class Health :MonoBehaviour
     {
         public delegate void HealthChange(int amount);
+        public delegate void Death();
         public event HealthChange OnHealthChange;
         public event HealthChange OnHeal;
         public event HealthChange OnDamage;
+        public event Death OnDeath;
         
         public void Initialize(int maxHealth)
         {
@@ -36,7 +38,9 @@ namespace CharVar
         public void Damage(int amount)
         {
             Set(health - amount);
+
             if(OnDamage != null)OnDamage.Invoke(health);
+            if(health <= 0 && OnDeath != null) OnDeath.Invoke();
         }
 
 
