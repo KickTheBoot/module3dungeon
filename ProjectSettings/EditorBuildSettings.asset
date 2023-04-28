@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Basement.unity
     guid: 645cdf1c010f9244ea0f0539e2c2381f
+  - enabled: 1
+    path: Assets/Scenes/KeyRoom.unity
+    guid: 5d86154f068452b4c814a021273e3801
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6f4bdf5071871b74493045dd30a52ae0, type: 2}

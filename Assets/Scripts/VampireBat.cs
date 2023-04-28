@@ -20,7 +20,6 @@ public class VampireBat : Character
     // Start is called before the first frame update
     void Start()
     {
-        health.Initialize(4);
         animator.SetBool("Flying", false);
         health.OnDamage += OnDamage;
     }

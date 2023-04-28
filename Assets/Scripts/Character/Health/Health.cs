@@ -14,16 +14,24 @@ namespace CharVar
         public event HealthChange OnDamage;
         public event Death OnDeath;
         
-        public void Initialize(int maxHealth)
+        public void Initialize(int health, int maxHealth)
         {
             this.maxHealth = maxHealth;
-            this.health = maxHealth;
+            this.health = health;
             if(OnHealthChange != null)OnHealthChange.Invoke(maxHealth);
         }
 
+        [SerializeField] int InitialHealth;
         public int health {get; private set;}
+        
+        [SerializeField] int InitialMaxHealth;
         public int maxHealth {get; private set;}
          
+        void Awake()
+        {
+            Initialize(InitialHealth,InitialMaxHealth);
+        }
+
         public void Set(int amount)
         {
             if(amount < maxHealth)

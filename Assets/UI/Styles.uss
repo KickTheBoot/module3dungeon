@@ -1,0 +1,13 @@
+.unity-text-element {
+    color: rgba(255, 255, 255, 255);
+    -unity-font: url('project://database/Assets/UI/joystix%20monospace.otf?fileID=12800000&guid=9f6963f7384fd1f4d8a1fe17647cdc39&type=3#joystix monospace');
+    -unity-font-definition: url('project://database/Assets/UI/joystix%20monospace%20SDF.asset?fileID=11400000&guid=df3b7323ac5a4c64e9486e9fe6356c61&type=2#joystix monospace SDF');
+    font-size: 100%;
+}
+
+.infocontainer {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}

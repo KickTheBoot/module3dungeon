@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public WorldVariables worldVariables;
 
     public GameSettingsScriptableObject GameSettings;
+    [SerializeField]UImanager manager;
 
     [SerializeField] Transitron transitron;
 
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         else Destroy(this.gameObject);
+
+        manager.trackedPlayer = GameObject.Find("Hero").GetComponent<PlayerCharacter>();
 
         worldVariables.Initialize();
     }
