@@ -88,15 +88,15 @@ public class PlayerCharacter : Character
         }
     }
 
-    public Vector2 GetCharacterSpeed()
-    {
-        return direction;
-    }
-
     public void OnHit(HurtBox other)
     {
         Debug.Log($"Take {other.Damage} damage!");
         rb.AddForce((transform.position - other.transform.position).normalized * other.knockBackForce,ForceMode2D.Impulse);
+    }
+
+    public override void OnDeath()
+    {
+        GameManager.instance.GameOver();
     }
 
 
@@ -200,6 +200,7 @@ public class PlayerCharacter : Character
         {
             Debug.Log("Exiting Attack State");
         }
+
     }
 }
 

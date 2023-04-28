@@ -50,6 +50,11 @@ public class GameManager : MonoBehaviour
         transitron.StartCoroutine(transitron.Fade(GameSettings.Controls.Disable,() => StartCoroutine(WarpAction(warp)),GameSettings.Controls.Enable));
     }
 
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+    }
+
     IEnumerator WarpAction(WarpInfo warp)
     {
         if(warp.SceneIndex != SceneManager.GetActiveScene().buildIndex)SceneManager.LoadScene(warp.SceneIndex);
