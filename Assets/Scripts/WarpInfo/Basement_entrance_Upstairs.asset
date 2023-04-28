@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: TestWarpPosition
-  m_EditorClassIdentifier: Assembly-CSharp::WarpInfo
+  m_Script: {fileID: 11500000, guid: 4bb2f6f71cc167545baaa35a2cf3f797, type: 3}
+  m_Name: Basement_entrance_Upstairs
+  m_EditorClassIdentifier: 
   SceneIndex: 0
-  Position: {x: -2, y: -1.5}
+  Position: {x: 9, y: -3.5}

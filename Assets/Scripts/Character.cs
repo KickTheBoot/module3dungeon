@@ -6,4 +6,6 @@ using CharVar;
 public abstract class Character : MonoBehaviour
 {
     public Health health;
+    
+    
 }

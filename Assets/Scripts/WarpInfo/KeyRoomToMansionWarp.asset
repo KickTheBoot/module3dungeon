@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: WarpInfo
-  m_EditorClassIdentifier: Assembly-CSharp::WarpInfo
+  m_Script: {fileID: 11500000, guid: 4bb2f6f71cc167545baaa35a2cf3f797, type: 3}
+  m_Name: KeyRoomToMansionWarp
+  m_EditorClassIdentifier: 
   SceneIndex: 0
-  Position: {x: 0.26287627, y: -0.10920724}
+  Position: {x: -7.5, y: -2}

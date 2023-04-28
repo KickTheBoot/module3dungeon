@@ -2,26 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Togglo))]
-public class HittableSwitch : MonoBehaviour
+
+public class HittableSwitch : Toggleable
 {
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite onSprite, offSprite;
     
-    Togglo togglo;
+    [SerializeField] AudioClip Sound;
     
-    // Start is called before the first frame update
-    void Start()
+    int index;    
+    
+    protected override void OnChange(bool value)
     {
-        togglo = GetComponent<Togglo>();
+        spriteRenderer.sprite = value ? onSprite : offSprite;
     }
 
     
 
     void OnHit(HurtBox other)
     {
-        togglo.status = !togglo.status;
-        spriteRenderer.sprite = togglo.status ? onSprite : offSprite;
+        Toggle();
+        AudioSource.PlayClipAtPoint(Sound, transform.position);
     }
 
 

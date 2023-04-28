@@ -2,38 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToggleableObstacle : MonoBehaviour
+public class ToggleableObstacle :  Toggleable
 {
     [Tooltip("The togglo this obstacle will listen for")]
-    public Togglo togglo;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool invert;
+    
+    
 
-    void OnEnable()
-    {
-        togglo.OnSwitch += SetChildren;
-    }
-
-    void OnDisable()
-    {
-        togglo.OnSwitch -= SetChildren;
-    }
-
-    void SetChildren(bool State)
+    protected override void OnChange(bool State)
     {
         int count = transform.childCount;
         for(int i = 0; i < count; i++)
         {
-            transform.GetChild(i).gameObject.SetActive(State);
+            transform.GetChild(i).gameObject.SetActive(State != invert);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

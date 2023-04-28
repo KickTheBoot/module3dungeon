@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Styles.uss?fileID=7433441132597879392&amp;guid=e2cfc30889f0fe64498034ad28acf008&amp;type=3#Styles" />
+    <ui:VisualElement name="HUD" style="left: 0; top: 0; right: 0; position: absolute; bottom: 80%; background-color: rgb(0, 0, 0); padding-left: 10px; flex-direction: row; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; justify-content: space-around; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; align-items: center; overflow: hidden;">
+        <ui:Label text="Health 10/10" display-tooltip-when-elided="true" name="Health" />
+        <ui:Label text="Keys:0" display-tooltip-when-elided="true" name="Keys" />
+        <ui:Label text="1st floor" display-tooltip-when-elided="true" name="Floor" />
+    </ui:VisualElement>
+</ui:UXML>

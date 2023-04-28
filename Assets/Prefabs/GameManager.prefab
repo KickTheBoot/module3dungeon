@@ -276,6 +276,9 @@ GameObject:
   - component: {fileID: 6061702950377315017}
   - component: {fileID: 6061702950377315016}
   - component: {fileID: 776781746086654782}
+  - component: {fileID: 2360028630018037333}
+  - component: {fileID: 1357087708}
+  - component: {fileID: 1357087709}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -314,7 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4481ae863811db4babf3e4d91ca4b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldVariables: {fileID: 2360028630018037333}
   GameSettings: {fileID: 11400000, guid: f84045ce237dbce4c80891b268ca5656, type: 2}
+  manager: {fileID: 1357087709}
   transitron: {fileID: 776781746086654782}
 --- !u!114 &776781746086654782
 MonoBehaviour:
@@ -331,6 +336,50 @@ MonoBehaviour:
   target: {fileID: 2627821794887542233}
   FadeInTime: 0.5
   FadeOutTime: 1
+--- !u!114 &2360028630018037333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061702950377315023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 698ad032f13e4484997ccfbe87c9ad06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  booleanCount: 10
+  pickedUpKeys: 
+--- !u!114 &1357087708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061702950377315023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: f432e80cd3f17b1448059f4b57c9ce33, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 050ab12b43baa7649ac4530ca81a6f64, type: 3}
+  m_SortingOrder: 0
+--- !u!114 &1357087709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061702950377315023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a181e34330d9847bc2c5f72d83c2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  document: {fileID: 1357087708}
+  trackedPlayer: {fileID: 0}
 --- !u!1 &6061702951560031443
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +422,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 10cf48276d4f8e1468b3c485a97c772e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
