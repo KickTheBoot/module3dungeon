@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   TargetName: Hero
-  FollowOffset: {x: 0.5, y: 0.5}
-  Treshold: {x: 4.3831797, y: 2.4655385}
+  FollowOffset: {x: 0.25, y: 0.25}
+  Treshold: {x: 2.6698391, y: 1.2327693}
 --- !u!1 &6061702950244395602
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +321,7 @@ MonoBehaviour:
   GameSettings: {fileID: 11400000, guid: f84045ce237dbce4c80891b268ca5656, type: 2}
   manager: {fileID: 1357087709}
   transitron: {fileID: 776781746086654782}
+  GameOverWarp: {fileID: 0}
 --- !u!114 &776781746086654782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,9 +423,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 10cf48276d4f8e1468b3c485a97c772e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0

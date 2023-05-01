@@ -8,28 +8,23 @@ using CharVar;
 public class PlayerCharacter : Character
 {
     static PlayerCharacter instance;
-
-    public GameObject Weapon;
-    
     public StateMachine stateMachine;
-
     public Animator animator;
-
     public Rigidbody2D rb;
+
+    public float speed;
+    public GameObject Weapon;
+    public int KeyCount;
+    
     public Vector2 direction;
     public Vector2 facing;
 
-    public int KeyCount;
-
     [SerializeField]
-    public float speed;
 
     InputActionMap actions;
-
     InputAction attack;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void Awake()
     {
         if(instance != null)
         {
@@ -41,6 +36,11 @@ public class PlayerCharacter : Character
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        base.Awake();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
         stateMachine = new StateMachine();
         stateMachine.ChangeState(new Idle(this));
         rb = GetComponent<Rigidbody2D>();
@@ -55,10 +55,10 @@ public class PlayerCharacter : Character
 
     void OnDisable()
     {
-        if(actions != null)
+        if(instance == this)
         {
-        actions.FindAction("Move").performed -= GetDirection;
-        actions.FindAction("Move").canceled -= GetDirection;
+            actions.FindAction("Move").performed -= GetDirection;
+            actions.FindAction("Move").canceled -= GetDirection;
         }
     }
 
@@ -88,15 +88,10 @@ public class PlayerCharacter : Character
         }
     }
 
-    public Vector2 GetCharacterSpeed()
+    public override void OnDeath()
     {
-        return direction;
-    }
-
-    public void OnHit(HurtBox other)
-    {
-        Debug.Log($"Take {other.Damage} damage!");
-        rb.AddForce((transform.position - other.transform.position).normalized * other.knockBackForce,ForceMode2D.Impulse);
+        GameManager.instance.GameOver();
+        health.Initialize(health.maxHealth / 2, health.maxHealth);
     }
 
 
@@ -200,6 +195,7 @@ public class PlayerCharacter : Character
         {
             Debug.Log("Exiting Attack State");
         }
+
     }
 }
 

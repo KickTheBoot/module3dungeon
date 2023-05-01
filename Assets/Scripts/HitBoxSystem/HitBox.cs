@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HitBox : MonoBehaviour
 {
+    public HitBoxLayer layer;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class HitBox : MonoBehaviour
         if(other.TryGetComponent<HurtBox>(out OtherHurtBox))
         {
             Debug.Log("A hit happened");
-            if(OtherHurtBox.transform.parent != transform.parent) SendMessageUpwards("OnHit",OtherHurtBox, SendMessageOptions.DontRequireReceiver);
+            if(OtherHurtBox.layer == this.layer || OtherHurtBox.layer == HitBoxLayer.All) SendMessageUpwards("OnHit",OtherHurtBox, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

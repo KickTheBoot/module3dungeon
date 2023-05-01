@@ -5,7 +5,7 @@ using Pathfinding;
 public class VampireBat : Character
 {
     [SerializeField]Transform homePoint;
-    [SerializeField]Collider2D viewArea;
+    
     [SerializeField]protected AIDestinationSetter destinationSetter;
     [SerializeField]protected AIPath path;
 
@@ -21,7 +21,6 @@ public class VampireBat : Character
     void Start()
     {
         animator.SetBool("Flying", false);
-        health.OnDamage += OnDamage;
     }
 
     // Update is called once per frame
@@ -58,21 +57,8 @@ public class VampireBat : Character
         if(other.tag == targetableTag) elapsedTime = 0;
     }
 
-    void OnHit(HurtBox Other)
-    {
-        health.Damage(Other.Damage);
-    }
 
-    void OnDamage(int healthamount)
-    {
-        Debug.Log($"Damaged, {healthamount}]");
-        if(healthamount <= 0)
-        {
-            Death();
-        }
-    }
-
-    void Death()
+    public override void OnDeath()
     {
         Destroy(gameObject);
     }
