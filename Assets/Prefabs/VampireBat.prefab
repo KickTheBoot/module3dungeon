@@ -121,6 +121,7 @@ MonoBehaviour:
   health: {fileID: 6833084562472783997}
   spriteRenderer: {fileID: 3180784361803823409}
   DamageSound: {fileID: 8300000, guid: 116eb65bc0c1c5f4a955e1bddb8579eb, type: 3}
+  invincibilityTime: 0
   homePoint: {fileID: 0}
   destinationSetter: {fileID: 3180784361527950190}
   path: {fileID: 3180784361527950191}
@@ -298,7 +299,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c53cf79ba338730458c87248a98e03d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
