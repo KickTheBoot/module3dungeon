@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     public GameSettingsScriptableObject GameSettings;
     [SerializeField]UImanager manager;
 
-    [SerializeField] Transitron transitron;
+    [SerializeField]Transitron transitron;
+
+    [SerializeField]WarpInfo GameOverWarp;
 
 
     public InputActionAsset GetInputActions()
@@ -53,15 +55,25 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
+        Warp(GameOverWarp);
+        worldVariables.pickedUpKeys.Clear();
+        for(int i = 0; i < worldVariables.booleans.Length;i++)
+        {
+            worldVariables.booleans[i].value = false;
+        }
     }
 
     IEnumerator WarpAction(WarpInfo warp)
     {
+        GameObject character = GameObject.Find("Hero");
+        Collider2D coll = character.GetComponent<Collider2D>();
+        coll.enabled = false;
+        character.transform.position = warp.Position;
         if(warp.SceneIndex != SceneManager.GetActiveScene().buildIndex)SceneManager.LoadScene(warp.SceneIndex);
         yield return null;
-        GameObject character = GameObject.Find("Hero");
+        coll.enabled = true;
+        character.SetActive(true);
         Debug.Log(character);
-        character.transform.position = warp.Position;
         Debug.Log($"{warp.Position}, {character.transform.position}");
     }
 

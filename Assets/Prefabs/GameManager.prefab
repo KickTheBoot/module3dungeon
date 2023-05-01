@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   TargetName: Hero
-  FollowOffset: {x: 0.5, y: 0.5}
-  Treshold: {x: 4.3831797, y: 2.4655385}
+  FollowOffset: {x: 0.25, y: 0.25}
+  Treshold: {x: 1.4569091, y: 1.2327693}
 --- !u!1 &6061702950244395602
 GameObject:
   m_ObjectHideFlags: 0

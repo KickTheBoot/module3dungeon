@@ -21,6 +21,7 @@ public class TrackedType<T>
         {
             m_value = value;
             if(OnChange != null)OnChange.Invoke(value);
+            Debug.Log($"Set value to {value}");
         }
     }
     public delegate void Change(T value);

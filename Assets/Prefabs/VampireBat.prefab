@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac9f5ba9e55d9b448d7eac07359dea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layer: 1
   Damage: 1
   DoesKnockBack: 0
   DestroyAfterHit: 0
@@ -389,4 +390,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 3

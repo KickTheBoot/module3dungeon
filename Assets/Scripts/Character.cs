@@ -7,7 +7,7 @@ public abstract class Character : MonoBehaviour
 {
     public Health health;
 
-    void Awake()
+    public virtual void Awake()
     {
         health.OnDeath += OnDeath;
     }

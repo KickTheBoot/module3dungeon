@@ -2,8 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum HitBoxLayer
+{
+    All,
+    Player,
+    Enemy
+}
+
 public class HurtBox : MonoBehaviour
 {
+    public HitBoxLayer layer;
     public int Damage;
     public bool DoesKnockBack;
 
