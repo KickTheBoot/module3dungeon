@@ -5,7 +5,7 @@ using Pathfinding;
 public class VampireBat : Character
 {
     [SerializeField]Transform homePoint;
-    [SerializeField]Collider2D viewArea;
+    
     [SerializeField]protected AIDestinationSetter destinationSetter;
     [SerializeField]protected AIPath path;
 
@@ -55,11 +55,6 @@ public class VampireBat : Character
     void OnObjectInSight(Collider2D other)
     {
         if(other.tag == targetableTag) elapsedTime = 0;
-    }
-
-    void OnHit(HurtBox Other)
-    {
-        health.Damage(Other.Damage);
     }
 
 

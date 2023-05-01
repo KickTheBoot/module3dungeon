@@ -24,9 +24,6 @@ public class PlayerCharacter : Character
     InputActionMap actions;
     InputAction attack;
 
-    [SerializeField]AudioClip DamageSound;
-
-
     public override void Awake()
     {
         if(instance != null)
@@ -89,14 +86,6 @@ public class PlayerCharacter : Character
             animator.SetFloat("DirX", direction.x);
             animator.SetFloat("DirY", direction.y);
         }
-    }
-
-    public void OnHit(HurtBox other)
-    {
-        if(DamageSound)AudioSource.PlayClipAtPoint(DamageSound,transform.position);
-        Debug.Log($"Take {other.Damage} damage!");
-        health.Damage(other.Damage);
-        rb.AddForce((transform.position - other.transform.position).normalized * other.knockBackForce,ForceMode2D.Impulse);
     }
 
     public override void OnDeath()

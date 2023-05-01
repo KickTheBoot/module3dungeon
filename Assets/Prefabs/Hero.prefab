@@ -175,6 +175,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 3565230223713476650}
+  spriteRenderer: {fileID: 6064565352559831852}
+  DamageSound: {fileID: 8300000, guid: 87a9c47793a67654e96161eb1b2cb94e, type: 3}
+  invincibilityTime: 0.5
   animator: {fileID: 6064565352559831840}
   rb: {fileID: 0}
   speed: 4
@@ -188,7 +191,6 @@ MonoBehaviour:
     m_Asset: {fileID: 0}
     m_Actions: []
     m_Bindings: []
-  DamageSound: {fileID: 8300000, guid: 87a9c47793a67654e96161eb1b2cb94e, type: 3}
 --- !u!114 &3565230223713476650
 MonoBehaviour:
   m_ObjectHideFlags: 0
