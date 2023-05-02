@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1610692003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1610692004}
+  - component: {fileID: 1610692005}
+  m_Layer: 0
+  m_Name: GameQuitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1610692004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610692003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6061702950377315017}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610692005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610692003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9403c3b6892f14b96b8d36dbc9127f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Quit:
+    m_Name: Quit
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6c6f31b9-e5ba-40f8-a2c9-3910bf2822e5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1613aab3-c6a6-4e3f-95d3-5de3732571a1
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Quit
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &4343160229017643418
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,7 +109,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   TargetName: Hero
   FollowOffset: {x: 0.25, y: 0.25}
-  Treshold: {x: 2.6698391, y: 1.2327693}
+  Treshold: {x: 1.3697436, y: 1.2327693}
 --- !u!1 &6061702950244395602
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +363,7 @@ Transform:
   - {fileID: 6061702950244395603}
   - {fileID: 6061702952090908773}
   - {fileID: 626902706481355666}
+  - {fileID: 1610692004}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -321,7 +383,7 @@ MonoBehaviour:
   GameSettings: {fileID: 11400000, guid: f84045ce237dbce4c80891b268ca5656, type: 2}
   manager: {fileID: 1357087709}
   transitron: {fileID: 776781746086654782}
-  GameOverWarp: {fileID: 0}
+  GameOverWarp: {fileID: 11400000, guid: d4e58f38c0f05f544bc05390eef047c1, type: 2}
 --- !u!114 &776781746086654782
 MonoBehaviour:
   m_ObjectHideFlags: 0

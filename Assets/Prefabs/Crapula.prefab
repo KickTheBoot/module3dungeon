@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1893859730319212688
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.9923205
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6881323
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.07855306
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950162, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950185, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_Name
+      value: Crapula
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361527950189, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: invincibilityTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180784361803823409, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 837214a4d96959d43b52b8b884cc8ee5, type: 3}
+    - target: {fileID: 3180784361803823414, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 90de27086d4490945af226e987288477, type: 2}
+    - target: {fileID: 6833084562472783997, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: InitialHealth
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833084562472783997, guid: 49c467d27e796d542b4292975541f594, type: 3}
+      propertyPath: InitialMaxHealth
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49c467d27e796d542b4292975541f594, type: 3}
