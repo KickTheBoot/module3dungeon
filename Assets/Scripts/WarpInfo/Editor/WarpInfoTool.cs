@@ -24,7 +24,7 @@ public class WarpInfoTool : ScriptableWizard
         WarpInfo info = ScriptableObject.CreateInstance<WarpInfo>();
         GameObject target = Selection.activeGameObject;
         info.Position = target.transform.position;
-        info.SceneIndex = target.scene.buildIndex;
+        info.SceneName = target.scene.name;
 
         AssetDatabase.CreateAsset(info, $"Assets/Scripts/WarpInfo/{OutputFileName}.asset");
         }

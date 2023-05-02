@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new WarpInfo", menuName = "Bootlegger/WarpInfo")]
 public class WarpInfo : ScriptableObject
 {
-    public int SceneIndex;
+    public string SceneName;
     public Vector2 Position;
 
 }

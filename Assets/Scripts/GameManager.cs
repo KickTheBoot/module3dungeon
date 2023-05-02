@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         Collider2D coll = character.GetComponent<Collider2D>();
         coll.enabled = false;
         character.transform.position = warp.Position;
-        if(warp.SceneIndex != SceneManager.GetActiveScene().buildIndex)SceneManager.LoadScene(warp.SceneIndex);
+        if(warp.SceneName != SceneManager.GetActiveScene().name)SceneManager.LoadScene(warp.SceneName);
         yield return null;
         coll.enabled = true;
         character.SetActive(true);
