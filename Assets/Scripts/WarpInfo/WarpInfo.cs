@@ -6,6 +6,7 @@ using UnityEngine;
 public class WarpInfo : ScriptableObject
 {
     public string SceneName;
+    public AudioClip RoomMusic;
     public Vector2 Position;
 
 }

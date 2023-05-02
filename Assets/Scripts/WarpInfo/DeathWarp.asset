@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb2f6f71cc167545baaa35a2cf3f797, type: 3}
   m_Name: DeathWarp
   m_EditorClassIdentifier: 
-  SceneIndex: 2
+  SceneName: CourtYard
   Position: {x: -5.5, y: -1.5}

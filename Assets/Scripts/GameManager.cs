@@ -7,6 +7,9 @@ using CharVar;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    AudioSource musicPlayer;
+
     public static GameManager instance;
 
     public WorldVariables worldVariables;
@@ -69,7 +72,13 @@ public class GameManager : MonoBehaviour
         Collider2D coll = character.GetComponent<Collider2D>();
         coll.enabled = false;
         character.transform.position = warp.Position;
+        
         if(warp.SceneName != SceneManager.GetActiveScene().name)SceneManager.LoadScene(warp.SceneName);
+        if(warp.RoomMusic != musicPlayer.clip)
+        {
+            musicPlayer.clip = warp.RoomMusic;
+            musicPlayer.Play();
+        }
         yield return null;
         coll.enabled = true;
         character.SetActive(true);

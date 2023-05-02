@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb2f6f71cc167545baaa35a2cf3f797, type: 3}
   m_Name: TestWarp
   m_EditorClassIdentifier: 
-  SceneIndex: 0
+  SceneName: Mansion
+  RoomMusic: {fileID: 8300000, guid: 10cf48276d4f8e1468b3c485a97c772e, type: 3}
   Position: {x: -6.3, y: -1.49}
